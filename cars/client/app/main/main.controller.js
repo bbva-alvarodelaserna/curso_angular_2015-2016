@@ -25,15 +25,17 @@ angular.module('carsApp')
 	vm.showModal = false;
 
 	var defaultModel = {
-		"bodyEngine": "sedan"
-		"color": "red"
-		"cp": "28004"
-		"email": "alguien@algo.com"
-		"engine": "100cv_1.8_diesel"
-		"extras": Array[2]
-		"finish": "executive"
-		"tires": "15"
-		"transmission": "automatic"
+		"bodyEngine": "sedan",
+		"color": "red",
+		"cp": "",
+		"email": "",
+		"engine": "100cv_1.8_diesel",
+		"extras": {
+			"0": "leather_seats"
+		},
+		"finish": "executive",
+		"tires": "15",
+		"transmission": "automatic",
 		"type": "normal"
 	}
 
@@ -170,12 +172,10 @@ angular.module('carsApp')
 	vm.cancel = cancel;
 	function cancel() {
 	  vm.showModal = false;
-	  resetForm();
 	};
 
 	function resetForm(){
 		vm.result = defaultModel;
-		$scope.$apply();
 	}
 
 }]);
