@@ -9,28 +9,28 @@
             <option ng-selected="$last" ng-repeat="(id, value) in vm.options.configurationTypes" value="{{value.value}}">{{value.label}}</option>
         </select>
     </div>
-    <div ng-if="vm.result['type'] == 'normal'">
+    <div>
         <label for="bodyEngine">Body engine</label>
-        <select id="bodyEngine" required ng-model="vm.result['bodyEngine']" ng-if="vm.result['type'] == 'normal'">
+        <select id="bodyEngine" required ng-model="vm.result['bodyEngine']" ng-show="vm.result['type'] == 'normal'">
             <option ng-selected="vm.bodyEngineNormal[0]" ng-repeat="(id, value) in vm.bodyEngineNormal" value="{{value.value}}">{{value.label}}</option>
         </select>
-        <select id="bodyEngine" required ng-model="vm.result['bodyEngine']" ng-if="vm.result['type'] != 'normal'">
+        <select id="bodyEngine" required ng-model="vm.result['bodyEngine']" ng-show="vm.result['type'] == 'sport'">
             <option ng-selected="vm.bodyEngineSport[0]" ng-repeat="(id, value) in vm.bodyEngineSport" value="{{value.value}}">{{value.label}}</option>
         </select>
     </div>
-    <div ng-if="vm.result['type'] == 'normal'">
+    <div ng-show="vm.result['type'] == 'normal'">
         <label for="engine">Engine</label>
         <select id="engine" required ng-model="vm.result['engine']">
             <option ng-selected="vm.engineNormal[0]" ng-repeat="(id, value) in vm.engineNormal" value="{{value.value}}">{{value.label}}</option>
         </select>
     </div>
-    <div ng-if="vm.result['type'] == 'normal'">
+    <div ng-show="vm.result['type'] == 'normal'">
         <label for="transmission">Transmission</label>
         <select id="transmission" required ng-model="vm.result['transmission']">
             <option ng-selected="vm.transmissionNormal[0]" ng-repeat="(id, value) in vm.transmissionNormal" value="{{value.value}}">{{value.label}}</option>
         </select>
     </div>
-    <div ng-if="vm.result['type'] == 'normal'">
+    <div ng-show="vm.result['type'] == 'normal'">
         <label for="finish">Finish</label>
         <select id="finish" required ng-model="vm.result['finish']">
             <option ng-selected="vm.finishNormal[0]" ng-repeat="(id, value) in vm.finishNormal" value="{{value.value}}">{{value.label}}</option>
@@ -38,20 +38,20 @@
     </div>
     <div>
         <label for="tires">Tires</label>
-        <select id="tires" required ng-model="vm.result['tires']" ng-if="vm.result['type'] == 'normal'">
+        <select id="tires" required ng-model="vm.result['tires']" ng-show="vm.result['type'] == 'normal'">
             <option ng-selected="vm.tiresNormal[0]" ng-repeat="(id, value) in vm.tiresNormal" value="{{value.value}}">{{value.label}}</option>
         </select>
-        <select id="tires" required ng-model="vm.result['tires']" ng-if="vm.result['type'] == 'sport'">
+        <select id="tires" required ng-model="vm.result['tires']" ng-show="vm.result['type'] == 'sport'">
             <option ng-selected="vm.tiresSport[0]" ng-repeat="(id, value) in vm.tiresSport" value="{{value.value}}">{{value.label}}</option>
         </select>
     </div>
-    <div ng-if="vm.result['type'] == 'normal'">
+    <div ng-show="vm.result['type'] == 'normal'">
         <label for="color">Color</label>
         <select id="color" required ng-model="vm.result['color']">
             <option ng-selected="vm.colorNormal[0]" ng-repeat="(id, value) in vm.colorNormal" value="{{value.value}}">{{value.label}}</option>
         </select>
     </div>
-    <div ng-if="vm.result['type'] == 'sport'">
+    <div ng-show="vm.result['type'] == 'sport'">
         <label for="colorSport">Color Sport</label>
         <select id="colorSport" required ng-model="vm.result['color']">
             <option ng-selected="vm.colorsSport[0]" ng-repeat="(id, value) in vm.colorsSport" value="{{value.value}}">{{value.label}}</option>
@@ -59,10 +59,10 @@
     </div>
     <div>
         <label for="extras">Extras</label><br>
-        <select id="extras" required ng-model="vm.result['extras']" multiple ng-if="vm.result['type'] == 'normal'">
+        <select id="extras" required ng-model="vm.result['extras']" multiple ng-show="vm.result['type'] == 'normal'">
             <option ng-selected="vm.extrasNormal[0]" ng-repeat="(id, value) in vm.extrasSport" value="{{value.value}}">{{value.label}}</option>
         </select>
-        <select id="extras" required ng-model="vm.result['extras']" multiple ng-if="vm.result['type'] == 'sport'">
+        <select id="extras" required ng-model="vm.result['extras']" multiple ng-show="vm.result['type'] == 'sport'">
             <option ng-selected="vm.extrasSport[0]" ng-repeat="(id, value) in vm.extrasSport" value="{{value.value}}">{{value.label}}</option>
         </select>
     </div>

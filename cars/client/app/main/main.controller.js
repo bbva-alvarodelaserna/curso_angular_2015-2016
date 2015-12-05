@@ -24,6 +24,19 @@ angular.module('carsApp')
 	vm.loadingText = "Enviando...";
 	vm.showModal = false;
 
+	var defaultModel = {
+		"bodyEngine": "sedan"
+		"color": "red"
+		"cp": "28004"
+		"email": "alguien@algo.com"
+		"engine": "100cv_1.8_diesel"
+		"extras": Array[2]
+		"finish": "executive"
+		"tires": "15"
+		"transmission": "automatic"
+		"type": "normal"
+	}
+
 	$http({
 	  method: 'GET',
 	  url: '/api/options'
@@ -151,13 +164,18 @@ angular.module('carsApp')
     vm.ok = ok;
     function ok() {
 	  vm.showModal = false;
-	  $scope.$reset();
+	  resetForm();
 	};
 
 	vm.cancel = cancel;
 	function cancel() {
 	  vm.showModal = false;
-	  $scope.reset();
+	  resetForm();
 	};
+
+	function resetForm(){
+		vm.result = defaultModel;
+		$scope.$apply();
+	}
 
 }]);
