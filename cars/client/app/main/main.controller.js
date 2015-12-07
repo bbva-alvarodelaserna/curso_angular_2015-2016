@@ -29,8 +29,8 @@ angular.module('carsApp')
 		"color": "red",
 		"colorSport": "metal",
 		"comments": "",
-		"cp": " ",
-		"email": " ",
+		"cp": "",
+		"email": "",
 		"engine": "100cv_1.8_diesel",
 		"extras": {
 			
@@ -122,7 +122,7 @@ angular.module('carsApp')
 		vm.colorsSport = vm.options.colorsSport;
 		vm.colorNormal = vm.options.colors;
 
-		vm.result = defaultModel;
+		vm.result = angular.copy(defaultModel);
 	  }, function errorCallback(response) {
 	    // called asynchronously if an error occurs
 	    // or server returns response with an error status.
@@ -179,7 +179,7 @@ angular.module('carsApp')
 	};
 
 	function resetForm(){
-		vm.result = defaultModel;
+		vm.result = angular.copy(defaultModel);
 	}
 
 }]);
