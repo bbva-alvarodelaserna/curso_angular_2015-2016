@@ -27,11 +27,12 @@ angular.module('carsApp')
 	var defaultModel = {
 		"bodyEngine": "sedan",
 		"color": "red",
+		"comments": "",
 		"cp": "",
 		"email": "",
 		"engine": "100cv_1.8_diesel",
 		"extras": {
-			"0": "leather_seats"
+			
 		},
 		"finish": "executive",
 		"tires": "15",
@@ -119,7 +120,8 @@ angular.module('carsApp')
 		}
 		vm.colorsSport = vm.options.colorsSport;
 		vm.colorNormal = vm.options.colors;
-		
+
+		vm.result = defaultModel;
 	  }, function errorCallback(response) {
 	    // called asynchronously if an error occurs
 	    // or server returns response with an error status.
@@ -144,13 +146,12 @@ angular.module('carsApp')
 	            'color': vm.result.color,
 	            'extras': vm.result.extras,
 	            'cp': vm.result.cp,
+	            'comments': vm.result.comments,
 	            'email': vm.result.email
 	        }
       	};
-      	console.log(req);
       	$http(req).then(function(response) {
         	//var data = response.data;
-        	console.log(response);
         	vm.loadingText = "Hemos recibido correctamente tu solicitud";
 	    }, function(data) {
 	        // en caso de error...
