@@ -27,9 +27,10 @@ angular.module('carsApp')
 	var defaultModel = {
 		"bodyEngine": "sedan",
 		"color": "red",
+		"colorSport": "metal",
 		"comments": "",
-		"cp": "",
-		"email": "",
+		"cp": " ",
+		"email": " ",
 		"engine": "100cv_1.8_diesel",
 		"extras": {
 			
@@ -144,12 +145,14 @@ angular.module('carsApp')
 	            'finish': vm.result.finish,
 	            'tires': vm.result.tires,
 	            'color': vm.result.color,
+	            'colorSport': vm.result.colorSport,
 	            'extras': vm.result.extras,
 	            'cp': vm.result.cp,
 	            'comments': vm.result.comments,
 	            'email': vm.result.email
 	        }
       	};
+      	console.log(req);
       	$http(req).then(function(response) {
         	//var data = response.data;
         	vm.loadingText = "Hemos recibido correctamente tu solicitud";
