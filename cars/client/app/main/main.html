@@ -73,7 +73,7 @@
     </div>
     <div>
         <label for="cp" style="display:inline;">CP</label>
-        <input id="cp" type="number" value="{{vm.result['cp']}}" ng-model="vm.result['cp']" placeholder="28001" required>
+        <input id="cp" type="number" value="{{vm.result['cp']}}" ng-model="vm.result['cp']" placeholder="28001" required min=0>
         <span class="error" ng-show="formData.input.$error.number">El CP debe ser un número</span>
     </div>
     <div>
