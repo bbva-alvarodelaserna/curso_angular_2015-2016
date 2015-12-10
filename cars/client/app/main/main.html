@@ -69,17 +69,21 @@
     
     <div>
         <label for="comments">Comments</label><br>
-        <textarea id="comments" type="text" value="{{vm.result['comments']}}" ng-model="vm.result['comments']" required></textarea>
+        <textarea name="comments" type="text" value="{{vm.result['comments']}}" ng-model="vm.result['comments']" required></textarea><br>
+        <span class="error" ng-show="formData.comments.$error.required">Añade comentarios</span>
     </div>
     <div>
         <label for="cp" style="display:inline;">CP</label>
-        <input id="cp" type="number" value="{{vm.result['cp']}}" ng-model="vm.result['cp']" placeholder="28001" required min=0>
-        <span class="error" ng-show="formData.input.$error.number">El CP debe ser un número</span>
+        <input name="cp" type="number" value="{{vm.result['cp']}}" ng-model="vm.result['cp']" placeholder="28001" required min=0><br>
+        <span class="error" ng-show="formData.cp.$error.required">El CP es obligatorio</span>
+        <span class="error" ng-show="formData.cp.$error.number">El CP debe ser un número</span>
+        <span class="error" ng-show="formData.cp.$error.min">El CP debe ser un número positivo</span>
     </div>
     <div>
-        <label for="email" style="display:inline;">Email</label>
-        <input id="email" type="email" value="{{vm.result['email']}}" placeholder="alguien@algo.com" ng-model="vm.result['email']" required>
-        <span class="error" ng-show="formData.input.$error.email">El email debe ser válido</span>
+        <label for="emailC" style="display:inline;">Email</label>
+        <input name="emailC" type="email" value="{{vm.result['email']}}" placeholder="alguien@algo.com" ng-model="vm.result['email']" required><br>
+        <span class="error" ng-show="formData.emailC.$error.required">El email es obligatorio</span>
+        <span class="error" ng-show="formData.emailC.$error.email">El email debe ser válido</span>
     </div>
     <div>
         <input type="submit"></input>

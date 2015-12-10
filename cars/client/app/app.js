@@ -6,7 +6,8 @@ angular.module('carsApp', [
   'ngSanitize',
   'ui.router',
   'ui.bootstrap',
-  'ui.bootstrap.modal'
+  'ui.bootstrap.modal',
+  'carsApp.directives'
 ])
 .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
   $urlRouterProvider
