@@ -8,9 +8,8 @@ angular.module('carsApp', [
   'ui.bootstrap',
   'ui.bootstrap.modal'
 ])
-  .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
-    $urlRouterProvider
-      .otherwise('/');
-
-    $locationProvider.html5Mode(true);
-  });
+.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
+  $urlRouterProvider
+    .otherwise('/');
+  $locationProvider.html5Mode(true);
+});

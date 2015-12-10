@@ -73,11 +73,13 @@
     </div>
     <div>
         <label for="cp" style="display:inline;">CP</label>
-        <input id="cp" type="text" value="{{vm.result['cp']}}" ng-model="vm.result['cp']" placeholder="28001" required>
+        <input id="cp" type="number" value="{{vm.result['cp']}}" ng-model="vm.result['cp']" placeholder="28001" required>
+        <span class="error" ng-show="formData.input.$error.number">El CP debe ser un número</span>
     </div>
     <div>
         <label for="email" style="display:inline;">Email</label>
         <input id="email" type="email" value="{{vm.result['email']}}" placeholder="alguien@algo.com" ng-model="vm.result['email']" required>
+        <span class="error" ng-show="formData.input.$error.email">El email debe ser válido</span>
     </div>
     <div>
         <input type="submit"></input>
