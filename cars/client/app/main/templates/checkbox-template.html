@@ -1,0 +1,7 @@
+<div>
+	<label>{{label}}</label>
+	<div ng-repeat="option in options" class="inline">
+        <input id="{{label}}-{{option.value}}" name="{{label}}-{{option.value}}" ng-model="model[$index]"
+            type="checkbox" ng-value="option.value" ng-checked="vm.result['type'] == 'sport'"/> <span>{{option.label}}</span>
+    </div>
+</div>

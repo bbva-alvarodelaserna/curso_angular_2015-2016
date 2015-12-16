@@ -2,10 +2,11 @@
 
 angular.module('carsApp')
 .controller('MainCtrl', ['$scope', '$http', function($scope, $http) {
+
 	var vm = this;
 	vm.options = [];
 	vm.processForm = processForm;
-	vm.result = {};
+	
 	vm.bodyEngineSport = [];
 	vm.engineSport = [];
 	vm.transmissionSport = [];
@@ -20,7 +21,7 @@ angular.module('carsApp')
 	vm.tiresNormal = [];
 	vm.colorNormal = vm.options.colors;
 	vm.extrasNormal = [];
-	vm.result.type = "normal";
+	
 	vm.loadingText = "Enviando...";
 	vm.showModal = false;
 
@@ -41,13 +42,14 @@ angular.module('carsApp')
 		"type": "normal"
 	}
 
+	// vm.result = angular.copy(defaultModel);
+
 	$http({
 	  method: 'GET',
 	  url: '/api/options'
 	}).then(function successCallback(response) {
 	    // this callback will be called asynchronously
 	    // when the response is available
-	    console.log(response.data);
 		vm.options = response.data;
 		for(var i in vm.options){
 			// console.log(i)
@@ -123,6 +125,7 @@ angular.module('carsApp')
 		vm.colorNormal = vm.options.colors;
 
 		vm.result = angular.copy(defaultModel);
+		console.log(vm.options);
 	  }, function errorCallback(response) {
 	    // called asynchronously if an error occurs
 	    // or server returns response with an error status.

@@ -7,7 +7,7 @@ angular.module('carsApp', [
   'ui.router',
   'ui.bootstrap',
   'ui.bootstrap.modal',
-  'carsApp.directives'
+  'directives'
 ])
 .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
   $urlRouterProvider
