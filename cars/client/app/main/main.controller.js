@@ -4,6 +4,7 @@ angular.module('carsApp')
 .controller('MainCtrl', ['$scope', '$http', function($scope, $http) {
 
 	var vm = this;
+	vm.isSport = false;
 	vm.options = [];
 	vm.processForm = processForm;
 	
@@ -170,6 +171,7 @@ angular.module('carsApp')
     function toggleModal(){
         vm.showModal = !vm.showModal;
     };
+
     vm.ok = ok;
     function ok() {
 	  vm.showModal = false;
@@ -184,5 +186,23 @@ angular.module('carsApp')
 	function resetForm(){
 		vm.result = angular.copy(defaultModel);
 	}
+
+	$scope.$watch("vm.result.type", function handleTypeChange(newValue, oldValue){
+		console.log("type: ", vm.result.type);
+		if(vm.result.type == 'sport'){
+			vm.result.bodyEngine = 'sport';
+			vm.result.finish = 'sport';
+			vm.result.extras = {
+				0: true,
+				1: true,
+				2: true,
+				3: true
+			};
+			vm.result.tires = "18";
+		}else{
+			vm.isSport = false;
+		}
+		console.log(vm.isSport);
+	});
 
 }]);
