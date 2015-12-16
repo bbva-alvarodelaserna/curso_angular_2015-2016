@@ -1,4 +1,4 @@
 <div>
 	<label>{{label}}</label>
-	<select ng-model="model" ng-options="option.value as option.label for option in options" required></select>
+	<select ng-model="model" ng-options="option.value as option.label for option in options" ng-init="options[0]" required></select>
 </div>

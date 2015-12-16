@@ -31,17 +31,22 @@
     <span class="error" ng-show="formData.cp.$error.required">El CP es obligatorio</span>
     <span class="error" ng-show="formData.cp.$error.number">El CP debe ser un número</span>
     <span class="error" ng-show="formData.cp.$error.min">El CP debe ser un número positivo</span>
+    <span class="error" ng-show="formData.cp.$error.minlength">El CP debe no puede tener menos de 5 dígitos</span>
+    <span class="error" ng-show="formData.cp.$error.maxlength">El CP debe no puede tener más de 5 dígitos</span>
     
     <div question-directive tipo="text" label="Email" nombre="emailC" options="" model="vm.result.email" tne="email">
     </div>
     <span class="error" ng-show="formData.emailC.$error.required">El email es obligatorio</span>
     <span class="error" ng-show="formData.emailC.$error.email">El email debe ser válido</span>
     
+    <br>
+    <br>    
     <div>
-        <input type="submit"></input>
+        <input type="submit" ng-disabled="formData.$invalid" ng-class="{true:'invalid', false:'valid'}[formData.$invalid]"></input>
     </div>
 
 </form>
+
 <div ng-show="vm.showModal" modal="vm.showModal" close="vm.cancel()">
     <div class="modal-header">
         
