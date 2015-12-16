@@ -3,6 +3,4 @@
 	<div ng-repeat="option in options" class="inline">
         <input type="radio" ng-model="$parent.model" id="{{nombre}}_{{$index}}" name="{{nombre}}" ng-value="option.value"/> <span>{{option.label}}</span>
     </div>
-    <br>
-    Selected: {{model}}
 </div>

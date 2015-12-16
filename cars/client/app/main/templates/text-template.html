@@ -1,6 +1,6 @@
 <div>
 	<label>{{label}}</label>
-	<input ng-if="tne == 'text'" type="text" ng-model="model" name="{{nombre}}" required></input>
-	<input ng-if="tne == 'number'" type="number" ng-model="model" name="{{nombre}}" required></input>
-	<input ng-if="tne == 'email'" type="email" ng-model="model" name="{{nombre}}" required></input>
+	<input ng-if="tne == 'text'" type="text" ng-model="$parent.model" name="{{nombre}}" required></input>
+	<input ng-if="tne == 'number'" type="number" ng-model="$parent.model" name="{{nombre}}" required></input>
+	<input ng-if="tne == 'email'" type="email" ng-model="$parent.model" name="{{nombre}}" required></input>
 </div>
