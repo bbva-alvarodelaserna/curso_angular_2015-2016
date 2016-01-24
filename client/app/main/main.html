@@ -1,0 +1,62 @@
+<div style="text-align:center">
+    <h2>Pide presupuesto para tu coche</h2>
+</div>
+<div style="text-align:center">
+<form ng-submit="vm.processForm()" name="formData" id="formData">
+    
+    <div question-directive tipo="radio" label="Type" nombre="type" options="vm.options.configurationTypes" model="vm.result.type"></div>
+
+    <div question-directive tipo="select" label="Body engine" options="vm.bodyEngineNormal" model="vm.result.bodyEngine" ng-show="vm.result.type == 'normal'"></div>
+    <div question-directive tipo="select" label="Body engine" options="vm.bodyEngineSport" model="vm.result.bodyEngine" ng-show="vm.result.type == 'sport'"></div>
+
+    <div question-directive tipo="select" label="Engine" options="vm.engineNormal" model="vm.result.engine" ng-show="vm.result.type == 'normal'"></div>
+
+    <div question-directive tipo="select" label="Transmission" options="vm.options.transmissions" model="vm.result.transmission" ng-show="vm.result.type == 'normal'"></div>
+
+    <div question-directive tipo="radio" label="Finish" options="vm.options.finishes" nombre="finish" model="vm.result.finish" ng-disable="vm.result.type == 'sport'"></div>
+    
+    <div question-directive tipo="radio" label="Tires" nombre="tires" options="vm.tiresNormal" model="vm.result.tires" ng-show="vm.result.type == 'normal'"></div>
+    <div question-directive tipo="radio" label="Tires" nombre="tires" options="vm.tiresSport" model="vm.result.tires" ng-show="vm.result.type == 'sport'"></div>
+    
+    <div question-directive tipo="select" label="Color" options="vm.options.colors" model="vm.result.color" ng-show="vm.result.type == 'normal'"></div>
+
+    <div question-directive tipo="select" label="Color" options="vm.options.colorsSport" model="vm.result.colorSport" ng-show="vm.result.type == 'sport'"></div>
+    
+    <div question-directive tipo="checkbox" label="Extras" options="vm.options.extras" model="vm.result.extras"></div>
+
+    <div question-directive tipo="textarea" label="Comments" options="" nombre="comments" model="vm.result.comments"></div>
+    <span class="error" ng-show="formData.comments.$error.required">Añade comentarios</span>
+
+    <div question-directive tipo="text" label="CP" nombre="cp" options="" model="vm.result.cp" tne="number"></div>
+    <span class="error" ng-show="formData.cp.$error.required">El CP es obligatorio</span>
+    <span class="error" ng-show="formData.cp.$error.number">El CP debe ser un número</span>
+    <span class="error" ng-show="formData.cp.$error.min">El CP debe ser un número positivo</span>
+    <span class="error" ng-show="formData.cp.$error.minlength">El CP debe no puede tener menos de 5 dígitos</span>
+    <span class="error" ng-show="formData.cp.$error.maxlength">El CP debe no puede tener más de 5 dígitos</span>
+    
+    <div question-directive tipo="text" label="Email" nombre="emailC" options="" model="vm.result.email" tne="email">
+    </div>
+    <span class="error" ng-show="formData.emailC.$error.required">El email es obligatorio</span>
+    <span class="error" ng-show="formData.emailC.$error.email">Email no válido</span>
+    
+    <br>
+    <br>    
+    <div>
+        <input type="submit" ng-disabled="formData.$invalid" ng-class="{true:'invalid', false:'valid'}[formData.$invalid]"></input>
+    </div>
+
+</form>
+
+<div ng-show="vm.showModal" modal="vm.showModal" close="vm.cancel()">
+    <div class="modal-header">
+        
+    </div>
+    <div class="modal-body">
+        <p>{{vm.loadingText}}</p>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-success" ng-click="vm.ok()">Okay</button>
+      <button class="btn" ng-click="vm.cancel()">Cancel</button>
+    </div>
+  </div>
+</div>
